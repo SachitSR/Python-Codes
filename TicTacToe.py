@@ -42,15 +42,20 @@ def place_check(board,position):  #Checking board position occupancy
 
 def player_position():  # Inputs the player's choice of position
     while True:
-        pos = int(input("Enter your desired position: "))
-        if pos>=1 and pos<=9:
-            return pos
-            False
-        else:
+        try:
+            pos = int(input("Enter your desired position: "))
+        except:
             print('Not a valid input. Try again')
+        else:
+            if pos>=1 and pos<=9:
+                return pos
+                break
+            else:
+                print("You did not enter a number between 1-9")
 
 
-def first_player(): # Chooses a random first player
+
+def first_player(): # Chooses a random first players
     return (random.randint(1,2))
 
 def board_full(board): #Tie Checker--- Checks if the board is full
